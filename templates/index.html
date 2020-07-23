@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Fake Estate
+{% endblock %}
+
+{% block main %}
+
+<div>
+    <h1 class="heading">
+        {% if current_user.is_authenticated %}
+
+        {% if time == "morning" %}
+        Good Morning, <b>{{ current_user.username }}</b>
+        {% elif time == "afternoon" %}
+        Good Afternoon, <b>{{ current_user.username }}</b>
+        {% else %}
+        Good Evening, <b>{{ current_user.username }}</b>
+        {% endif %}
+
+        {% else %}
+        Welcome to <b>Fake Estate</b>
+        {% endif %}
+    </h1>
+</div>
+
+{% if current_user.is_authenticated %}
+
+<div class="index-loggedin">
+    <div class="content-cell index-loggedin-cell">
+        <h3 style="text-align: center;">
+            Top Markets <br>
+            According to ULI <br>
+        </h3>
+        Austin, TX <br>
+        Raleigh/Durham, NC <br>
+        Nashville, TN <br>
+        Charlotte, NC <br>
+        Boston, MA <br>
+        Dallas/Fort Worth, TX <br>
+        Orlando, FL <br>
+        Atlanta, GA <br>
+        Los Angeles, CA <br>
+        Seattle, WA <br>
+    </div>
+
+    <div class="content-cell index-loggedin-cell">
+        <h3 style="text-align: center;">
+            Cities containing your <br>
+            saved properties <br>
+        </h3>
+        {% if cities %}
+        {% for city, state in cities %}
+        {{ city }}, {{ state }} <br>
+        {% endfor %}
+        {% else %}
+        You have no saved properties!
+        {% endif %}
+    </div>
+</div>
+
+{% else %}
+
+<div class="index-flex">
+    <a class="content-clickable index-account" href="/login">
+        <img class="index-img" src="{{ url_for('static', filename='login_icon.png') }}" alt="Error loading image">
+        <h3>Login</h3>
+    </a>
+    
+    <a class="content-clickable index-account" href="/register">
+        <img class="index-img" src="{{ url_for('static', filename='register_icon.png') }}" alt="Error loading img">
+        <h3>Register</h3>
+    </a>
+</div>
+
+{% endif %}
+{% endblock %}

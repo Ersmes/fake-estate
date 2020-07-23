@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Fake Estate | Login
+{% endblock %}
+
+{% block main %}
+
+<div class="form-div">
+    <img src="{{ url_for('static', filename='fake_estate_logo_standalone.png') }}" alt="Error loading image">
+    <h2>Login</h2>
+    <form class="form" action="/login" method="POST">
+        <input class="form-item" name="username" type="text" placeholder="Username" autofocus>
+        <input class="form-item" name="password" type="password" placeholder="Password">
+        <input class="form-button" type="submit" value="Login">
+    </form>
+</div>
+
+{% endblock %}

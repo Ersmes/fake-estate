@@ -1,0 +1,331 @@
+.navbar .navbar-nav .nav-item
+{
+    margin-top: 10px;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    transition: top 5s;
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-item:hover
+{
+    color: burlywood;
+    top: -10px;
+}
+
+@keyframes alert-animation
+{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+div.alert
+{
+    background-color: #ffffff;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 90px;
+    animation-name: alert-animation;
+    animation-delay: 3s;
+    animation-duration: 2s;
+}
+
+.content-clickable
+{
+    display: block;
+    border: 3px solid gainsboro;
+    background: white;
+    border-radius: 5px;
+    padding: 3px;
+    color: black;
+    text-decoration: none;
+}
+
+.content-clickable:hover
+{
+    border: 3px solid black;
+    color: black;
+    text-decoration: none;
+}
+
+.content-cell
+{
+    border: 3px solid gainsboro;
+    background: white;
+    border-radius: 5px;
+    padding: 3px;
+    color: black;
+    text-decoration: none;
+}
+
+.form-div
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form
+{
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-item
+{
+    width: 300px;
+    border: 3px solid gainsboro;
+    border-radius: 3px;
+}
+
+.form-button
+{
+    width: 150px;
+}
+
+.heading
+{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.container-main
+{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-content
+{
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+.container-search-results
+{
+    display: flex;
+    align-items: flex-start;
+}
+
+.container-results
+{
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    border: 3px solid gainsboro;
+    margin-left: 30px;
+    justify-content: space-evenly;
+    height: 85vh;
+    overflow: auto;
+}
+
+.container-noresults
+{
+    position: relative;
+    left: 30%;
+    transform: translate(-50%, 0);
+    background: white;
+    border: 3px solid gainsboro;
+    padding: 5px;
+}
+
+.result
+{
+    display: block;
+    border: 3px solid gainsboro;
+    width: 47%;
+    height: 250px;
+    background: white;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 3px;
+    color: black;
+    text-decoration: none;
+}
+
+.result:hover
+{
+    border: 3px solid black;
+    color: black;
+    text-decoration: none;
+}
+
+.result-img
+{
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    float: right;
+    background-color: gray;
+    position: relative;
+    margin-left: 3px;
+}
+
+.container-details
+{
+    background: white;
+    border: 3px solid gainsboro;
+    height: 85vh;
+    width: 70%;
+    margin: auto;
+    border-radius: 5px;
+    padding: 3px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-img-container
+{
+    width: 60%;
+    height: 100%;
+    float: right;
+    margin-left: 3px;
+    display: none;
+    position: relative;
+}
+
+.details-img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: gray;
+    position: relative;
+}
+
+.img-index
+{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#prev-button
+{
+    position: absolute;
+    opacity: .8;
+    color: gainsboro;
+    left: 10px;
+    top: 50%;
+    font-size: large;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+}
+
+#next-button
+{
+    position: absolute;
+    opacity: .8;
+    color: gainsboro;
+    right: 10px;
+    top: 50%;
+    font-size: large;
+    font-weight: bold;
+    transform: translate(50%, -50%);
+}
+
+.general-info
+{
+    width: 100%;
+    height: 60%;
+    font-size: large;
+}
+
+.description-info
+{
+    width: 100%;
+    margin-top: 20px
+}
+
+.centered
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.index-flex
+{
+    position: relative;
+    top: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.index-account
+{
+    height: 300px;
+    width: 200px;
+    text-align: center;
+}
+
+.index-img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 70%;
+    margin-bottom: 20px
+}
+
+.index-loggedin
+{
+    display: flex;
+    position: relative;
+    top: 10%;
+    justify-content: space-evenly;
+    height: 350px
+}
+
+.index-loggedin-cell
+{
+    overflow: auto;
+}
+
+.container-saved
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 85vh;
+    overflow: auto;
+}
+
+.container-nosaved
+{
+    text-align: center;
+}
+
+body
+{
+    background: #ffffff url('roof1.jpg') no-repeat fixed top; 
+    background-size: cover;
+}
+
+footer
+{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-top: 50px;
+    background: gainsboro;
+    bottom: 0;
+}
+
+.white
+{
+    color: white;
+}

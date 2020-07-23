@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+View Saved Properties | Fake Estate
+{% endblock %}
+
+{% block main %}
+
+{% if properties %}
+
+<div class="content-cell container-saved">
+    {% for property in properties %}
+
+    <a class="result" href="/details/{{ property["property_id"] }}">
+
+        {% if property["photos"] %}
+        
+        <img class="result-img" src="{{ property["photos"][0]["href"] }}" alt="Error loading image">
+        
+        {% else %}
+
+        <div class="result-img">
+            <div class="centered white">
+                No image available!
+            </div>
+        </div>
+        
+        {% endif %}
+
+        Price: {{ property["price"] | usd() }}
+        <br>Type: {{ property["type"] | type_filter() }}
+        <br>{{ property["beds"] }} Bed, {{ property["baths"] }} Bath
+
+        {% if property["lot_size"] %}
+        <br>{{ property["lot_size"] }} {{ property["units"] }}
+        {% endif %}
+        
+        <br>{{ property["city"] }}, {{ property["state"] }} {{ property["postal_code"] }}
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="content-cell container-nosaved"><h2>You have no saved properties</h2></div>
+
+{% endif %}
+
+{% endblock %}

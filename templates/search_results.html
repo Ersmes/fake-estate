@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Fake Estate | Search
+{% endblock %}
+
+{% block main %}
+
+<div class="container-search-results">
+    <div class="form-div">
+        <img src="{{ url_for('static', filename='fake_estate_logo_standalone.png') }}" alt="Error loading image">
+        <h2>Search</h2>
+        <form class="form" action="/search" method="POST">
+            <input class="form-item" type="text" name="city" placeholder="City" autofocus>
+            <input class="form-item" type="text" name="state_code" placeholder="State Code">
+            <input class="form-button" type="submit" value="Search">
+        </form>
+    </div>
+    
+    {% if properties %}
+
+    <div class="container-results">
+        {% for property in properties %}
+
+        <a class="result" href="/details/{{ property["property_id"] }}">
+
+            {% if "thumbnail" in property %}
+            <img class="result-img" src="{{ property["thumbnail"] }}" alt="Error loading image">
+            {% else %}
+            <div class="result-img">
+                <div class="centered white">
+                    No image available!
+                </div>
+            </div>
+            {% endif %}
+
+            Price: {{ property["price"] | usd() }}
+            <br>Type: {{ property["prop_type"] | type_filter() }}
+            <br>{{ property["beds"] }} Bed, {{ property["baths"] }} Bath
+
+            {% if property["lot_size"] %}
+            <br>{{ property["lot_size"]["size"] }} {{ property["lot_size"]["units"] }}
+            {% endif %}
+            
+            <br>{{ property["address"]["city"] }}, {{ property["address"]["state"] }} {{ property["address"]["postal_code"] }}
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+    
+    {% else %}
+
+    <div class="container-noresults"><h2>No results found</h2></div>
+    
+    {% endif %}
+</div>
+
+{% endblock %}

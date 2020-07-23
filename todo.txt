@@ -1,0 +1,102 @@
+WHAT IM DOING RN:
+FAKE ESTATE ALPHA IS READY FOR RELEASE!!!
+    but we need to test like everything and also solve the problem of dependency on the limited Realtor API
+
+
+
+? make a cool looking error page
+    implement errorhandler()
+? much better practice to use url_for() function for everything
+? maybe put some cool news on the index page
+? maybe handle json uploads of fictional properties - seems pretty cool
+? investigate using celery to load stuff in background
+? ultimate god would be to load the property in the background while viewing saved
+? clicking the back button into the search form causes some trolling
+? give control over the infinite amount of search options the list_for_sale endpoint gives
+? WE RUNNING OUT OF API REQUESTS (may b switch to zillow at some point which is infinite?)
+? when we use the list_for_sale function, it inherently gives the details for every property, so can we somehow
+    use that to prevent a second detail request from the API? (IT DOES NOT THIS THING IS LYING THE PHOTOS ARE ONLY
+    AVAILABLETHROUGH THE DETAILS REQUEST)
+? implement markupsafe for some sort of security
+
+
+
+
+
+
+
+
+
+
+
+
+THE LONG-TERM PLAN:
+basically a real estate version of cs50 finance
+modeled after real estate tycoon games
+? predictive math modeling to figure out prices of homes over time
+    ? fast forwarding through time
+    ? am i making this more like a game or more like a realistic website?
+? rent calculations
+? property maintenance costs
+
+SEARCH LAYOUT:
+form to input a city name and state code (and maybe a limit to the # of results)
+clicking search redirects to search_results.html - see below
+probably going to try to get the function down first, then focus on the aesthetics
+* see if empty inputs causes bugs
+
+ |
+\|/
+
+SEARCH_RESULTS LAYOUT:
+it looks terrible but its gotta work first
+button for each property listed which leads to details of the property: use html forms to post requests to a details.html
+
+ |
+\|/
+
+DETAILS LAYOUT:
+literally the purpose of this is to look good but its not going to
+! include save property functionality
+! this is probably the most basic layout
+
+
+
+___________________________________________________________________________________________
+HOMEPAGE LAYOUT:
+dashboard containing owned properties, total value, total income, assets/liabilities etc
+GRAPHS OVER TIME OF STUFF
+? area able to recommend properties to purchase based on personal preference, etc
+
+
+
+
+GRAVEYARD
+! message flashing to debug more efficiently
+    lord its ugly af but we finna fix it eventually
+! ^implementing login and register functions
+    implement flashing messages in order to notify user of error
+    CHECK FOR EMPTY FORM INPUTS
+! redo details function to accept parameters through url - looks better
+! handle when the user submits a blank search
+! propertay sayve button
+    learning ajax bois we in this fr now
+    laying server side database groundwork rn
+    alrite now we need to deal with the button toggling and stuff
+! property save history
+    learning how to use flask-sqlalchemy
+    learning new http request methods (not what i was looking for)
+! complete navbar and other styling
+makin the login and register pages look epic style
+! implementing either flask-session or flask-login to fix the below
+    ! login required
+    ! LOGIN IS RETAINED EVEN WHEN SERVER IS RESTARTED
+makin the search results look epic style
+WHAT IS THE PROBLEM?:
+- how is we finna do dis
+- NVM WE FOUND AJAX BOIS
+! fancying up the details page
+!!! search and search results pages
+    maybe use iframes for search results page?
+! plan index layout and overall site layout
+    working on property storing database in order to be able to provide cool homepage data

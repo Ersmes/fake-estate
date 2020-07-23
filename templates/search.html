@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Fake Estate | Search
+{% endblock %}
+
+{% block main %}
+
+<div class="form-div">
+    <img src="{{ url_for('static', filename='fake_estate_logo_standalone.png') }}" alt="Error loading image">
+    <h2>Search</h2>
+    <form class="form" action="/search" method="POST">
+        <input class="form-item" type="text" name="city" placeholder="City" autofocus>
+        <input class="form-item" type="text" name="state_code" placeholder="State Code">
+        <input class="form-button" type="submit" value="Search">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Fake Estate | Details
+{% endblock %}
+
+{% block main %}
+
+<div class="container-details">
+
+    <div class="general-info">
+        {% if "photos" in property %}
+
+        {% for i in range(property["photos"] | length) %}
+        <div class="details-img-container">
+            <img class="details-img" src="{{ property["photos"][i]["href"] }}" alt="Error loading image">
+            <p class="img-index">{{ i + 1 }} / {{ property["photos"] | length }}</p>
+            <a id="prev-button" href="javascript:prev()">&lt;</a>
+            <a id="next-button" href="javascript:next()">&gt;</a>
+        </div>
+        {% endfor %}
+
+        {% else %}
+
+        <div class="details-img-container">
+            <div class="details-img">
+                <div class="centered white">
+                    No image available!
+                </div>
+            </div>
+        </div>
+        
+        {% endif %}
+
+        Price: {{ property["price"] | usd() }} <br>
+        Status: {{ property["prop_status"] | status_filter() }} <br>
+        Type: {{ property["prop_type"] | type_filter() }} <br>
+        Built: {{ property["year_built"] }} <br>
+        {{ property["beds"] }} Bed, {{ property["baths"] }} Bath <br>
+        Located in: {{ property["address"]["city"] }}, {{ property["address"]["state"] }} {{ property["address"]["postal_code"] }} <br>
+        
+        {% if property["lot_size"] %}
+        Lot size: {{ property["lot_size"]["size"] }} {{ property["lot_size"]["units"] }} <br>
+        {% endif %}
+
+        {% if current_user.is_authenticated %}
+        <span id="saveButton">
+            {% if saved %}
+            <a href="javascript:saveProperty('{{ property["property_id"] }}')">Remove Property</a>
+            {% else %}
+            <a href="javascript:saveProperty('{{ property["property_id"] }}')">Save Property</a>
+            {% endif %}
+        </span>
+        {% endif %}
+
+    </div>
+
+    <div class="description-info">
+        Seller Description: <br>
+        {{ property["description"] }}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    var index = 0;
+    var elems = document.getElementsByClassName("details-img-container");
+
+    function show() {
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].style.display = "none";
+        }
+        elems[index].style.display = "block";
+    }
+
+    function prev() {
+        if (index > 0) {
+            index--;
+        }
+        show();
+    }
+
+    function next() {
+        if (index < elems.length - 1) {
+            index++;
+        }
+        show();
+    }
+
+    show();
+</script>
+
+{% endblock %}
