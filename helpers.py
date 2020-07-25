@@ -27,7 +27,7 @@ def detail(property_id):
 
     headers = {
         'x-rapidapi-host': "realtor.p.rapidapi.com",
-        'x-rapidapi-key': "6a4ed64e38mshee54b26379b40d7p107093jsn36e25acd943f"
+        #'x-rapidapi-key': INSERT REALTOR API KEY HERE!
     }
 
     response = requests.request("GET", url,
